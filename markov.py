@@ -68,28 +68,33 @@ def make_chains(text_string):
     """
 
     chains = {}
+    words = text_string.split()
 
-    # your code goes here
-    # new_list = list(text_string)
-    # for thing in text_string:
-    #     new_list.append(thing)
-    # print(new_list)
+    words.append(None)
 
+    for i in range(len(words) - 2):
+        key = (words[i], words[i + 1])
+        value = words[i + 2]
 
-    # for word1, word2, word3 in text_string:
-    #     key_tuple = (word1, word2)
-    #     chains[key_tuple] = word3
-    # print(chains)
+        if key not in chains:
+            chains[key] = []
+            
+        chains[key].append(value)
 
-    #return chains
+    return chains
 
 
 def make_text(chains):
     """Return text from chains."""
 
-    words = []
+    
+    key = choice(list(chains.keys())) #We grab our keys (tuples) from the dictionary
+                                        # turn them into a list of tuples
+                                        # and pick a random one
+    words = [key[0], key [1]]
+    value = choice(chains[key]) # We choose a random value from the list associated with our random key
 
-    # your code goes here
+    
 
     return ' '.join(words)
 
