@@ -16,15 +16,17 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    # your code goes here
     markov_file = open(file_path)
-    long_string = ""
-    for word in markov_file:
-        seuss_word = word.rstrip()
-        dr_seuss_word = seuss_word.strip(" ")
-        long_string += dr_seuss_word + " "
-    print(type(long_string))
-    return long_string
+    markov_text = markov_file.read()
+    markov_file.close()
+
+    # long_string = ""
+    # for word in markov_file:
+    #     seuss_word = word.rstrip()
+    #     dr_seuss_word = seuss_word.strip(" ")
+    #     long_string += dr_seuss_word + " "
+    # print(type(long_string))
+    return markov_text
 
 
 #iterate through string
@@ -35,6 +37,9 @@ def open_and_read_file(file_path):
 #conditional to decide if that tuple is already in the dict 
     #if not, add to dict
     #if is, the dictionary is complete (break)
+
+
+
 
 def make_chains(text_string):
 
